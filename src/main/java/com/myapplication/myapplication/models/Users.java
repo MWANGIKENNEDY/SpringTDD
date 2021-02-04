@@ -15,7 +15,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "users")
-
 public class Users implements Serializable {
 
     //no args constructor

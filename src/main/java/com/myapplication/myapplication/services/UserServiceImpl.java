@@ -11,21 +11,19 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Kennedy
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
     
     @Autowired
     UserRepository userRepository;
 
-    @Override
-    public void registerUser(Users users) {
-        userRepository.save(users);
-    }
 
     @Override
     public List<Users> getAllUsers() {
@@ -45,6 +43,16 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);//To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Users findByFname(String name) {
+        return userRepository.findByFname(name); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Users registerUser(Users users) {
+        return userRepository.save(users);
     }
     
 }

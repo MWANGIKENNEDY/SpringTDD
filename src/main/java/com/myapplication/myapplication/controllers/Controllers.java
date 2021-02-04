@@ -37,7 +37,7 @@ public class Controllers {
     //get all users
     @GetMapping(value = "/users")
     public ResponseEntity<Object> getAllUsers(){
-        return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
+        return ResponseEntity.ok().body(userService.getAllUsers());
     }
     //get one user
     @GetMapping(value = "/users/{id}")
